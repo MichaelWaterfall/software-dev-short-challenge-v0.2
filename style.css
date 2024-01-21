@@ -1,3 +1,4 @@
-.userInputBox {
-    
+#userInputBox {
+    border: solid;
+    border-color: black;
 }
