@@ -1,4 +1,15 @@
 #userInputBox {
     border: solid;
     border-color: black;
+    border-radius: 25px;
+    background-color: rgb(137, 200, 46);
+    text-align: center;
+    width: 30%;
+    
+}
+
+#button {
+    border-color: black;
+    color: black;
+    background-color: rgb(231, 0, 100);
 }

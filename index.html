@@ -9,13 +9,14 @@
 </head>
 <body>
     <form id="userInputBox">
+        <br><br>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter Your Name"><br><br>
+        <input type="text" pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$" id="name" name="name" placeholder="Enter Your Name"><br>
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email" placeholder="Enter Your Email"><br><br>
+        <input type="email" id="email" name="email" placeholder="Enter Your Email"><br>
         <label for="card">Card:</label>
-        <input type="text" id="card" name="card" placeholder="Enter a Proxy Credit Card Number."><br><br>
-        <input type="submit" value="Submit">
+        <input type="text" pattern="[0-9]" id="card" name="card" minlength="16" maxlength="16" placeholder="Enter a Proxy Credit Card Number."><br>
+        <button id="button" onClick="submitButton()">Submit</button>
     </form>
 </body>
 </html>
