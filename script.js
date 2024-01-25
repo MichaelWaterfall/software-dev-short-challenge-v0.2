@@ -3,7 +3,7 @@ function submitButton() {
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
     let creditCard = document.getElementById("card").value;
-    if(checkCreditCard(creditCard)) {
+    if(validateName(name) && validateEmail(email) && checkCreditCard(creditCardNumber)) {
         window.location.href = "mailto:challenge@dn-uk.com?subject="+ name + email + "&body="+creditCard;
     }
 
@@ -55,9 +55,23 @@ function checkCreditCard(creditCardNumber) {
     
 }
 
-function requiredFields() {
-    
+function validateName(input) {
+    let name = document.getElementById("name").value;
+    const nameRegex = /^([a-zA-z,/.-]+)\s([a-zA-z,/.-]+)$/;
+    if(nameRegex.test(name)) {
+        console.log("name is valid");
+        input.style.borderColor = "Green";
+        return true;
+    } else {
+        input.style.borderColor = "rgb(231,0,100)";
+        console.log("name is not valid");
+    }
 }
+
+function validateEmail(input) {
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+}
+
 /*
 if(checkCreditCard("79927398713")) {
     console.log("Credit Card Number is valid");
