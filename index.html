@@ -11,11 +11,11 @@
     <form id="userInputBox">
         <br><br>
         <label for="name">Name:</label>
-        <input type="text" pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$" id="name" name="name" placeholder="Enter Your Name" onblur="validateName(this)"><br><br>
+        <input class="inputBox" type="text" pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$" id="name" name="name" placeholder="Enter Your Name" onblur="validateName()"><br><br>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter Your Email" onblur="validateEmail(this)"><br><br>
+        <input class="inputBox" type="email" id="email" name="email" placeholder="Enter Your Email" onblur="validateEmail()"><br><br>
         <label for="card">Card:</label>
-        <input type="text" pattern="[0-9]" id="card" name="card" minlength="16" maxlength="16" placeholder="Enter a Proxy Credit Card Number." onblur="checkCreditCard(this)"><br><br>
+        <input class="inputBox" type="text" pattern="[0-9]" id="card" name="card" maxlength="16" placeholder="Enter a Proxy Credit Card Number." onblur="checkCreditCard()"><br><br>
         <button id="button" onClick="submitButton()">Submit</button>
     </form>
 </body>

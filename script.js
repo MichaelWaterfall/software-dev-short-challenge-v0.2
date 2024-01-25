@@ -2,14 +2,24 @@ function submitButton() {
     console.log("Submit");
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
-    let creditCard = document.getElementById("card").value;
+    let creditCardNumber = document.getElementById("card").value;
     if(validateName(name) && validateEmail(email) && checkCreditCard(creditCardNumber)) {
-        window.location.href = "mailto:challenge@dn-uk.com?subject="+ name + email + "&body="+creditCard;
+        window.location.href = "mailto:challenge@dn-uk.com?subject="+ name + email + "&body="+creditCardNumber;
+    } else {
+        let nameInput = document.getElementById("name");
+        let emailInput = document.getElementById("email");
+        let creditInput = document.getElementById("card");
+        nameInput.style.borderColor = "rgb(231,0,100)";
+        emailInput.style.borderColor = "rgb(231,0,100)";
+        creditInput.style.borderColor = "rgb(231,0,100)";
+        
     }
 
 }
 
-function checkCreditCard(creditCardNumber) {
+function checkCreditCard() {
+    let input = document.getElementById("card");
+    let creditCardNumber = input.value;
 
     //Convert string input into an array of integers
     let creditCardArray = [];
@@ -42,21 +52,33 @@ function checkCreditCard(creditCardNumber) {
                     for(let i = 0; i < creditCardArray.length; i++) {
                         finalTotal += creditCardArray[i];
                     }
+                    if(finalTotal % 10 == 0) {
+                        input.style.borderColor = "Green";
+                        return true;
+                    } else {
+                        input.style.borderColor = "rgb(231,0,100)";
+                        return false;
+                    }
                     console.log(finalTotal % 10 == 0);
+                    input.style.borderColor = "Green";
                     return finalTotal % 10 == 0;
                 }
             }
         } else {
             console.log("Credit Card Number cannot add up to zero.");
+            input.style.borderColor = "rgb(231,0,100)";
         }
     } else {
+        console.log(creditCardArray);
         console.log("Credit Card Number must be 16 numbers long.");
+        input.style.borderColor = "rgb(231,0,100)";
     }
     
 }
 
-function validateName(input) {
-    let name = document.getElementById("name").value;
+function validateName() {
+    let input = document.getElementById("name");
+    let name = input.value;
     const nameRegex = /^([a-zA-z,/.-]+)\s([a-zA-z,/.-]+)$/;
     if(nameRegex.test(name)) {
         console.log("name is valid");
@@ -68,8 +90,16 @@ function validateName(input) {
     }
 }
 
-function validateEmail(input) {
+function validateEmail() {
+    let input = document.getElementById("email");
+    let email = input.value;
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(emailRegex.test(email)) {
+        input.style.borderColor = "Green";
+        return true;
+    } else {
+        input.style.borderColor = "rgb(231,0,100)";
+    }
 }
 
 /*
