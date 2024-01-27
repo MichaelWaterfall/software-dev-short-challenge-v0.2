@@ -3,8 +3,9 @@ function submitButton() {
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
     let creditCardNumber = document.getElementById("card").value;
+    let body = `${name} \n${email}\n${creditCardNumber}`;
     if(validateName(name) && validateEmail(email) && checkCreditCard(creditCardNumber)) {
-        window.location.href = "mailto:challenge@dn-uk.com?subject="+ name + email + "&body="+creditCardNumber;
+        window.location.href = "mailto:challenge@dn-uk.com?&body="+ body;
     } else {
         let nameInput = document.getElementById("name");
         let emailInput = document.getElementById("email");
@@ -12,7 +13,7 @@ function submitButton() {
         nameInput.style.borderColor = "rgb(231,0,100)";
         emailInput.style.borderColor = "rgb(231,0,100)";
         creditInput.style.borderColor = "rgb(231,0,100)";
-        
+
     }
 
 }
@@ -79,7 +80,8 @@ function checkCreditCard() {
 function validateName() {
     let input = document.getElementById("name");
     let name = input.value;
-    const nameRegex = /^([a-zA-z,/.-]+)\s([a-zA-z,/.-]+)$/;
+    const nameRegex = /^([a-zA-z,/.-]+){2}\s([a-zA-z,/.-]+){2}$/;
+    //const nameRegex = /^[a-zA-Z]+ [a-zA-Z]+$/;
     if(nameRegex.test(name)) {
         console.log("name is valid");
         input.style.borderColor = "Green";
