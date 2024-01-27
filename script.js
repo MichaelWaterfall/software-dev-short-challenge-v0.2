@@ -4,12 +4,19 @@ function submitButton() {
     let email = document.getElementById("email").value;
     let creditCardNumber = document.getElementById("card").value;
     let body = `${name} \n${email}\n${creditCardNumber}`;
+    let nameInput = document.getElementById("name");
+    let emailInput = document.getElementById("email");
+    let creditInput = document.getElementById("card");
     if(validateName(name) && validateEmail(email) && checkCreditCard(creditCardNumber)) {
-        window.location.href = "mailto:challenge@dn-uk.com?&body="+ body;
+        window.location.href = "mailto:challenge@dn-uk.com?&body="+ encodeURIComponent(body);
+    } 
+    else if(validateName(name) && !validateEmail(email) && !checkCreditCard(creditCardNumber)) {
+        emailInput.style.borderColor = "rgb(231,0,100)";
+        creditInput.style.borderColor = "rgb(231,0,100)";
+    } 
+    else if(validateName(name) && validateEmail(email) && !checkCreditCard(creditCardNumber)) {
+        creditInput.style.borderColor = "rgb(231,0,100)";
     } else {
-        let nameInput = document.getElementById("name");
-        let emailInput = document.getElementById("email");
-        let creditInput = document.getElementById("card");
         nameInput.style.borderColor = "rgb(231,0,100)";
         emailInput.style.borderColor = "rgb(231,0,100)";
         creditInput.style.borderColor = "rgb(231,0,100)";
