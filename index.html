@@ -9,13 +9,26 @@
 </head>
 <body>
     <form id="userInputBox">
-        <br><br>
-        <label for="name">Name:</label>
-        <input class="inputBox" type="text" pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$" id="name" name="name" placeholder="Enter Your Name" onblur="validateName()"><br><br>
-        <label for="email">Email:</label>
-        <input class="inputBox" type="email" id="email" name="email" placeholder="Enter Your Email" onblur="validateEmail()"><br><br>
-        <label for="card">Card:</label>
-        <input class="inputBox" type="text" pattern="[0-9]" id="card" name="card" maxlength="16" placeholder="Enter a Proxy Credit Card Number." onblur="checkCreditCard()"><br><br>
+        <table>
+            <br><br>
+            <tr>
+                <!--<label for="name">Name:</label>-->
+                <td>Name:</td>
+                <td><input class="inputBox" type="text" pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$" id="name" name="name" placeholder="Enter Your Name" onblur="validateName()"></td>
+            </tr>
+            
+            <tr>
+                <!--<label for="email">Email:</label>-->
+                <td>Email:</td>
+                <td><input class="inputBox" type="email" id="email" name="email" placeholder="Enter Your Email" onblur="validateEmail()"></td>
+            </tr>
+            <tr>
+                <!--<label for="card">Card:</label>-->
+                <td>Card:</td>
+                <td><input class="inputBox" type="text" pattern="[0-9]" id="card" name="card" maxlength="16" placeholder="Enter a Proxy Credit Card Number." onblur="checkCreditCard()"></td>
+            </tr>
+            
+        </table>
         <button id="button" onClick="submitButton()">Submit</button>
     </form>
 </body>
