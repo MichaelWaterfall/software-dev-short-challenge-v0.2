@@ -67,9 +67,7 @@ function checkCreditCard() {
                         input.style.borderColor = "rgb(231,0,100)";
                         return false;
                     }
-                    console.log(finalTotal % 10 == 0);
-                    input.style.borderColor = "Green";
-                    return finalTotal % 10 == 0;
+                   
                 }
             }
         } else {
