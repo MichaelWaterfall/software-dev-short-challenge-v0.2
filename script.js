@@ -7,6 +7,7 @@ function submitButton() {
     let nameInput = document.getElementById("name");
     let emailInput = document.getElementById("email");
     let creditInput = document.getElementById("card");
+    // Only create email page if name, email and credit card number are all valid
     if(validateName(name) && validateEmail(email) && checkCreditCard(creditCardNumber)) {
         window.location.href = "mailto:challenge@dn-uk.com?&body="+ encodeURIComponent(body);
     } 
