@@ -24,4 +24,5 @@ In order to pass the third test I had to add "{2}" to my nameRegex variable.
 I learnt how to add a new line to mailto in javasscript using 
 
 What would you do differently?
-What I would do differently is
+What I would do differently is I would write more comments as I am writing the code instead of adding my comments at the end
+after I had finished writing the functionality of my project.
